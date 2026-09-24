@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlp-loaders"
+version = "0.1.0"
+description = "Reusable PyTorch datasets, collate functions, and text transforms for NLP data loading."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["nlp", "pytorch", "dataloader", "tokenizer", "torchtext", "education"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchtext>=0.15.0",
+    "transformers>=4.30.0",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+spacy = ["spacy>=3.5.0"]
+dev = ["pytest>=7.0.0", "ruff>=0.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -m 'not network'"
+markers = [
+    "network: tests that download datasets or models from the internet (opt-in with -m network)",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = [".git", ".github"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "D"]
+ignore = ["D100", "D101", "D104", "D105", "D107", "D203", "D213"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+"tutorials/*" = ["D"]
+"examples/*" = ["D"]

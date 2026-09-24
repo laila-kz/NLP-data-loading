@@ -1,0 +1,10 @@
+# Text files are normalized to LF on commit, checked out with native EOLs.
+* text=auto
+
+*.py  text eol=lf
+*.pyi text eol=lf
+*.toml text eol=lf
+*.md  text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.pyc binary
