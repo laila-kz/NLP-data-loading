@@ -1,4 +1,4 @@
-# nlp-loaders
+# NLP data loaders
 
 Reusable PyTorch **datasets, collate functions, and text transforms** for NLP data loading, with a set of runnable tutorials that teach how DataLoaders work.
 
